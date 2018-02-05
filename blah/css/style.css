@@ -18,16 +18,16 @@ header {
 
 #boop {
   position: absolute;
-  top: 0;
+  top: -66px;
   left: calc(50% - 33px);
-  animation: animationFrames ease 3s;
-  animation-iteration-count: 1;
-  transform-origin: 50% 50%;
-  animation-fill-mode: forwards;
-  display: none;
+  transition: top 3s ease 5s; /*5second start delay after you move the mouse away*/
+}
+header:hover #boop {
+  transition: top 3s ease; /*no start delay when you hover over it*/
+  top: 0px;
 }
 
-@keyframes animationFrames {
+/* @keyframes animationFrames {
   0% {
     opacity: 1;
     transform: translate(0px, -66px);
@@ -44,7 +44,7 @@ header {
     opacity: 1;
     transform: translate(0px, -66px);
   }
-}
+} */
 nav ul {
   list-style-type: none;
   padding: 0;
@@ -156,11 +156,11 @@ img {
 
 @font-face {
   font-family: "milkshake";
-  src: url("/fonts/Milkshake.ttf") format("truetype");
+  src: url("../fonts/Milkshake.ttf") format("truetype");
 }
 @font-face {
   font-family: "caveat";
-  src: url("/fonts/caveat.ttf") format("truetype");
+  src: url("../fonts/caveat.ttf") format("truetype");
 }
 
 /*# sourceMappingURL=style.css.map */
