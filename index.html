@@ -12,9 +12,9 @@
   <body>
     <header>
       <nav>
-        <h1 onmouseover="document.getElementById('boop').style.display='inline'">Oatsyland</h1>
+        <h1>Oatsyland</h1>
         <ul>
-          <li><a href="blah/alt.html">Dummy Text</a></li><li>
+          <li><a href="#">Dummy Text</a></li><li>
             <a href="#">Dummy Text</a></li><li>
               <a href="#">Dummy Text</a></li><li>
                 <a href="#">Dummy Text</a></li>
@@ -44,5 +44,28 @@
         <img class="solo-image" src="img/Ponkbar.png"/>
       </div>
     </div>
+    <script>
+      document.body.insertAdjacentHTML('beforeend', `<style type="text/css">
+  #boop.booped {display: inline;}
+  </style>`);
+
+  var next;
+  var pinkie = document.querySelector('#boop');
+  document.querySelector('header h1').addEventListener('mouseenter', function() {
+    if (next && (new Date() < next)) return;
+          if (pinkie.classList.contains('booped')) return; //no point when already playing
+          if (Math.random() * 100 < 10) {
+            next = new Date();
+            next.setSeconds(next.getSeconds() + 15);// only play again in 15 seconds
+            pinkie.classList.add('booped');
+            setTimeout(function() {
+            pinkie.classList.remove('booped'); //reset animation
+            }, 5000);
+      } else {
+          next = new Date();
+          next.setSeconds(next.getSeconds() + 2);  //only play again in 2 seconds
+    }
+});
+    </script>
   </body>
 </html>
